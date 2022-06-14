@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/20c5629a29.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="data:image/png;base64,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" class="food-munch-logo" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ml-auto">
+                    <a class="nav-link active" id="navItem1" href="#wcuSection">
+                        Student Login
+                        <span class="sr-only">(current)</span>
+                    </a>
+                    <a class="nav-link" href="#exploreMenuSection" id="navItem2">Attendance</a>
+                    <a class="nav-link" href="#deliveryPaymentSection" id="navItem3">Calendar</a>
+                    <a class="nav-link" href="#followUsSection" id="navItem4">Follow Us</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="banner-section-bg-container d-flex justify-content-center flex-column">
+        <div class="text-center">
+            <h1 class="banner-heading mb-3">Student attendance portal</h1>
+            <p class="banner-caption mb-4">Login to continue</p>
+            <button class="custom-button">Login</button>
+        </div>
+    </div>
+    <div class="wcu-section pt-5 pb-5" id="wcuSection">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="wcu-section-heading">Student login</h1>
+                    <p class="wcu-section-description">
+                        Enter your login credentials
+                    </p>
+                </div>
+                <div class="container mt-5">
+                    <div class="row d-flex justify-content-center ">
+                        <div class="col-md-6">
+                            <div class="card px-5 py-5" id="form1">
+                                <div class="form-data" v-if="!submitted">
+                                    <div class="forms-inputs mb-4"> <span>Enter username</span> <input autocomplete="off" type="text" v-model="email" v-bind:class="{'form-control':true, 'is-invalid' : !validEmail(email) && emailBlured}" v-on:blur="emailBlured = true">
+                                        <div class="invalid-feedback">A valid email is required!</div>
+                                    </div>
+                                    <div class="forms-inputs mb-4"> <span>Password</span> <input autocomplete="off" type="password" v-model="password" v-bind:class="{'form-control':true, 'is-invalid' : !validPassword(password) && passwordBlured}" v-on:blur="passwordBlured = true">
+                                        <div class="invalid-feedback">Password must be 8 character!</div>
+                                    </div>
+                                    <div class="mb-3"> <button v-on:click.stop.prevent="submit" class="btn btn-dark w-100">Login</button> </div>
+                                </div>
+                                <div class="success-data" v-else>
+                                    <div class="text-center d-flex flex-column"> <i class='bx bxs-badge-check'></i> <span class="text-center fs-1">You have been logged in <br> Successfully</span> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="explore-menu-section pt-5 pb-5" id="exploreMenuSection">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="menu-section-heading">Attendance</h1>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="shadow menu-item-card p-3 mb-3">
+                        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/em-ginger-fried-img.png" class="menu-item-image w-100" />
+                        <h1 class="menu-card-title">Non-Veg Starters</h1>
+                        <a href="" class="menu-item-link">
+                            View All
+                            <svg width="16px" height="16px" viewBox="0 0 16 16" class="bi bi-arrow-right-short" fill="#d0b200" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="shadow menu-item-card p-3 mb-3">
+                        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/em-veg-starters-img.png" class="menu-item-image w-100" />
+                        <h1 class="menu-card-title">Veg Starters</h1>
+                        <a href="" class="menu-item-link">
+                            View All
+                            <svg width="16px" height="16px" viewBox="0 0 16 16" class="bi bi-arrow-right" fill="#d0b200" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="menu-item-card shadow p-3 mb-3">
+                        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/em-soup-img.png" class="menu-item-image w-100" />
+                        <h1 class="menu-card-title">Soups</h1>
+                        <a href="" class="menu-item-link">
+                            View All
+                            <svg width="16px" height="16px" viewBox="0 0 16 16" class="bi bi-arrow-right" fill="#d0b200" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="menu-item-card shadow p-3 mb-3">
+                        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/em-grilled-seafood-img.png" class="menu-item-image w-100" />
+                        <h1 class="menu-card-title">Fish & Sea food</h1>
+                        <a href="" class="menu-item-link">
+                            View All
+                            <svg width="16px" height="16px" viewBox="0 0 16 16" class="bi bi-arrow-right" fill="#d0b200" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="menu-item-card shadow p-3 mb-3">
+                        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/em-hyderabadi-biryani-img.png" class="menu-item-image w-100" />
+                        <h1 class="menu-card-title">Main Course</h1>
+                        <a href="" class="menu-item-link">
+                            View All
+                            <svg width="16px" height="16px" viewBox="0 0 16 16" class="bi bi-arrow-right" fill="#d0b200" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="menu-item-card shadow p-3 mb-3">
+                        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/em-mushroom-noodles-img.png" class="menu-item-image w-100" />
+                        <h1 class="menu-card-title">Noodles</h1>
+                        <a href="" class="menu-item-link">
+                            View All
+                            <svg width="16px" height="16px" viewBox="0 0 16 16" class="bi bi-arrow-right" fill="#d0b200" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="menu-item-card shadow p-3 mb-3">
+                        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/em-gluten-img.png" class="menu-item-image w-100" />
+                        <h1 class="menu-card-title">Salads</h1>
+                        <a href="" class="menu-item-link">
+                            View All
+                            <svg width="16px" height="16px" viewBox="0 0 16 16" class="bi bi-arrow-right" fill="#d0b200" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="menu-item-card shadow p-3 mb-3">
+                        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/em-coffee-bourbon-img.png" class="menu-item-image w-100" />
+                        <h1 class="menu-card-title">Desserts</h1>
+                        <a href="" class="menu-item-link">
+                            View All
+                            <svg width="16px" height="16px" viewBox="0 0 16 16" class="bi bi-arrow-right" fill="#d0b200" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="healthy-food-section pt-5 pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-5">
+                    <div class="text-center">
+                        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/healthy-food-plate-img.png" class="healthy-food-section-img" />
+                    </div>
+                </div>
+                <div class="col-12 col-md-7">
+                    <h1 class="healthy-food-section-heading">
+                        Fresh, Healthy, Organic, Delicious Fruits
+                    </h1>
+                    <p class="healthy-food-section-description">
+                        Say no to harmful chemicals and go fully organic with our range of
+                        fresh fruits and veggies. Pamper your body and your senses with
+                        the true and unadulterated gifts from mother nature. with the true
+                        and unadulterated gifts from mother nature.
+                    </p>
+                    <button class="custom-button">Watch Video</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="delivery-and-payment-section pt-5 pb-5" id="deliveryPaymentSection">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-5 order-1 order-md-2">
+                    <div class="text-center">
+                        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/delivery-payment-section-img.png" class="delivery-and-payment-section-img" />
+                    </div>
+                </div>
+                <div class="col-12 col-md-7 order-2 order-md-1">
+                    <h1 class="delivery-and-payment-section-heading">
+                        Calendar
+                    </h1>
+                    <p class="delivery-and-payment-section-description">
+                        Enjoy hassle-free payment with the plenitude of payment options
+                        available for you. Get live tracking and locate your food on a
+                        live map. It's quite a sight to see your food arrive to your door.
+                        Plus, you get a 5% discount on every order every time you pay
+                        online.
+                    </p>
+                    <button class="custom-button">Order Now</button>
+                    <div class="mt-3">
+                        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/visa-card-img.png" class="payment-card-img" />
+                        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/master-card-img.png" class="payment-card-img" />
+                        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/paypal-card-img.png" class="payment-card-img" />
+                        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/american-express-img.png" class="payment-card-img" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="thanking-customers-section pt-5 pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-7 d-flex flex-column justify-content-center">
+                    <h1 class="thanking-customers-section-heading">
+                        Thank you for being a valuable customer to us.
+                    </h1>
+                    <p class="thanking-customers-section-description">
+                        We have a surprise gift for you
+                    </p>
+                    <div class="d-md-none">
+                        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/thanking-customers-section-img.png" class="thanking-customers-section-img" />
+                    </div>
+                    <div>
+                        <button class="custom-button">Redeem Gift</button>
+                    </div>
+                </div>
+                <div class="col-12 col-md-5 d-none d-md-block">
+                    <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/thanking-customers-section-img.png" class="thanking-customers-section-img" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="follow-us-section pt-5 pb-5" id="followUsSection">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="follow-us-section-heading">Follow Us</h1>
+                </div>
+                <div class="col-12">
+                    <div class="d-flex flex-row justify-content-center">
+                        <div class="follow-us-icon-container">
+                            <i class="fab fa-twitter icon"></i>
+                        </div>
+                        <div class="follow-us-icon-container">
+                            <i class="fab fa-instagram icon"></i>
+                        </div>
+                        <div class="follow-us-icon-container">
+                            <i class="fab fa-facebook icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-section pt-5 pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/food-munch-logo-light.png" class="food-munch-logo" />
+                    <h1 class="footer-section-mail-id">orderfood@foodmunch.com</h1>
+                    <p class="footer-section-address">
+                        123 Ayur Vigyan Nagar, New Delhi, India.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
